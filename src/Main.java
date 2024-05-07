@@ -5,6 +5,7 @@ import products.Burritos;
 import products.Hamburger;
 import products.Kebab;
 import products.Pizza;
+import speed.Speed;
 
 import static menu.UI.*;
 
@@ -20,6 +21,7 @@ public class Main {
         Hamburger ham = new Hamburger();
         Kebab keb = new Kebab();
         Pizza piz = new Pizza();
+        Speed sp = new Speed(false, true, true);
 
        System.out.println(one);
        System.out.println(rider);
@@ -28,11 +30,13 @@ public class Main {
         System.out.println(keb);
         System.out.println(piz);
 
+
         mainMenu();
         customerMenu();
         productsListMenu();
         productsMenu();
         speedMenu();
         deliveryMenu();
+        System.out.println(sp.toString());
     }
 }
