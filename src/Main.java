@@ -1,9 +1,12 @@
+import menu.UI;
 import people.Customer;
 import people.Rider;
 import products.Burritos;
 import products.Hamburger;
 import products.Kebab;
 import products.Pizza;
+
+import static menu.UI.*;
 
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -17,11 +20,19 @@ public class Main {
         Hamburger ham = new Hamburger();
         Kebab keb = new Kebab();
         Pizza piz = new Pizza();
+
        System.out.println(one);
        System.out.println(rider);
         System.out.println(burr);
         System.out.println(ham);
         System.out.println(keb);
         System.out.println(piz);
+
+        mainMenu();
+        customerMenu();
+        productsListMenu();
+        productsMenu();
+        speedMenu();
+        deliveryMenu();
     }
 }
