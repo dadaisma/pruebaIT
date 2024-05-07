@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec21a87-152d-4316-a071-4dd55cdf54c6" name="Changes" comment="order">
-      <change afterPath="$PROJECT_DIR$/src/exceptions/CustomerUndefinedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/EmptyProductListException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/IDundefined.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/InvalidMenuOptionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/order/OrderStructure.java" afterDir="false" />
+    <list default="true" id="6ec21a87-152d-4316-a071-4dd55cdf54c6" name="Changes" comment="exception">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/OrderStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/OrderStructure.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715075657648</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="exception">
+      <option name="closed" value="true" />
+      <created>1715076848863</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715076848863</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -129,6 +133,7 @@
     <MESSAGE value="speed" />
     <MESSAGE value="testprintspeed" />
     <MESSAGE value="order" />
-    <option name="LAST_COMMIT_MESSAGE" value="order" />
+    <MESSAGE value="exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="exception" />
   </component>
 </project>
