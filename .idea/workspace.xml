@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec21a87-152d-4316-a071-4dd55cdf54c6" name="Changes" comment="a">
-      <change afterPath="$PROJECT_DIR$/src/people/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/people/People.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/people/Rider.java" afterDir="false" />
+    <list default="true" id="6ec21a87-152d-4316-a071-4dd55cdf54c6" name="Changes" comment="people">
+      <change afterPath="$PROJECT_DIR$/src/products/Burritos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/products/Hamburger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/products/Kebab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/products/Pizza.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/products/Products.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -62,11 +64,20 @@
       <option name="project" value="LOCAL" />
       <updated>1715069159208</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="people">
+      <option name="closed" value="true" />
+      <created>1715070462251</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715070462251</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="people" />
+    <option name="LAST_COMMIT_MESSAGE" value="people" />
   </component>
 </project>
