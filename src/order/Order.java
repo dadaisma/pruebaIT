@@ -28,7 +28,7 @@ public class Order {
 
     private double calculateFinalPrice() {
         double totalPrice = products.stream().mapToDouble(Products::getPrice).sum();
-        return Math.round(transport.getPrice(totalPrice)*100 /100);
+        return transport.getPrice(totalPrice);
     }
 
     public int getID() {

@@ -35,11 +35,12 @@ public class UI {
         );
     }
 
-    public static void speedMenu(){
+    public static void transportTypeMenu(){
         System.out.println("""
-        1- NORMAL (by feet)
-        2- FAST (by bicycle)
-        3- THUNDER (by moto)
+        ***DELIVERY TYPE***
+        1- NORMAL (by feet)  NO EXTRA CHARGE
+        2- FAST (by bicycle) +1% 
+        3- THUNDER (by moto) +2%
         """);
     }
 

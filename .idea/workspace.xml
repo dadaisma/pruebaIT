@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec21a87-152d-4316-a071-4dd55cdf54c6" name="Changes" comment="menustructure">
+    <list default="true" id="6ec21a87-152d-4316-a071-4dd55cdf54c6" name="Changes" comment="review1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/OrderStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/OrderStructure.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,32 +24,40 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "dadaisma"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/dadaisma/pruebaIT.git",
+    "accountId": "e1e51b63-37a3-48c0-b01a-e9fb95e4b70a"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2g8AyHJPyhUCkzbXk53dZ7BWqdO" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/formacio/IdeaProjects/Davide/sprint2temp/pruebaIT/src/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "review",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "C:/Users/formacio/IdeaProjects/Davide/sprint2temp/pruebaIT/src/Main.java"
   }
-}</component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-15.0.2-corretto-15.0.2-4caba194b151-9bc2d75a" />
-      </set>
-    </attachedChunks>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -138,10 +147,19 @@
       <option name="project" value="LOCAL" />
       <updated>1715079287639</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="review1">
+      <option name="closed" value="true" />
+      <created>1717623451154</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1717623451154</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="a" />
     <MESSAGE value="people" />
     <MESSAGE value="products" />
@@ -152,6 +170,7 @@
     <MESSAGE value="exception" />
     <MESSAGE value="orderstructure" />
     <MESSAGE value="menustructure" />
-    <option name="LAST_COMMIT_MESSAGE" value="menustructure" />
+    <MESSAGE value="review1" />
+    <option name="LAST_COMMIT_MESSAGE" value="review1" />
   </component>
 </project>

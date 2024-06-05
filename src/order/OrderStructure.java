@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class OrderStructure {
     private static final Scanner sc = new Scanner(System.in);
@@ -62,28 +63,29 @@ public class OrderStructure {
         String name = sc.nextLine();
 
         return customers.stream()
-                .filter(customer -> customer.getName().equals(name))
+                .filter(customer -> customer.getName().equalsIgnoreCase(name))
                 .findFirst()
                 .orElseThrow(CustomerUndefinedException::new);
     }
 
     private static Rider pickRider() throws NoAvailableRider {
-        if (riders.stream().noneMatch(Rider::isAvailable)) {
+        List<Rider> availableRiders = riders.stream()
+                .filter(Rider::isAvailable)
+                .collect(Collectors.toList());
+
+        if (availableRiders.isEmpty()) {
             throw new NoAvailableRider();
         }
-        int randomIndex = random.nextInt(riders.size());
 
-        do {
-            if (riders.get(randomIndex).isAvailable()) {
-                riders.get(randomIndex).setAvailable(false);
-                return riders.get(randomIndex);
-            }
-            randomIndex = random.nextInt(riders.size());
-        } while (true);
+        int randomIndex = random.nextInt(availableRiders.size());
+        Rider chosenRider = availableRiders.get(randomIndex);
+        chosenRider.setAvailable(false);
+
+        return chosenRider;
     }
         //transport
     private static Transport pickTransport() throws  InvalidMenuOptionException{
-        UI.speedMenu();
+        UI.transportTypeMenu();
         option = sc.nextLine();
         return switch (option) {
             case "2" -> new ByBicycle();
