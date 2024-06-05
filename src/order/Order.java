@@ -23,13 +23,9 @@ public class Order {
         this.rider = rider;
         this.products = products;
         this.transport = transport;
-        this.finalPrice = calculateFinalPrice();
+        this.finalPrice = OrderStructure.calculateFinalPrice(products, transport);
     }
 
-    private double calculateFinalPrice() {
-        double totalPrice = products.stream().mapToDouble(Products::getPrice).sum();
-        return transport.getPrice(totalPrice);
-    }
 
     public int getID() {
         return id;
@@ -61,10 +57,17 @@ public class Order {
                 .map(Products::toString)
                 .collect(Collectors.joining("\n"));
 
+        double totalPrice = products.stream().mapToDouble(Products::getPrice).sum();
+        double transportPrice = transport.getPrice(products.stream().mapToDouble(Products::getPrice).sum());
+        double extraChargePercentage = (transportPrice - totalPrice);
+
+        String extraChargeString = String.format("Extra Charge for Transport: %.2f€", extraChargePercentage);
+
         return "Order ID: " + id + "\n" +
                 "Customer: " + customer.getName() + "\n" +
                 "Rider: " + rider.getName() + "\n" +
-                transport.toString() + "\n" +
+                transport + "\n" +
+                extraChargeString + "\n" +
                 "Products:\n" + productsString + "\n" +
                 "Final Price: " + finalPrice + "€";
     }

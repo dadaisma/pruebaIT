@@ -170,4 +170,10 @@ public class OrderStructure {
         deliveredOrders.forEach(order -> System.out.println(order));
     }
 
+    public static double calculateFinalPrice(List<Products> products, Transport transport) {
+        double totalPrice = products.stream().mapToDouble(Products::getPrice).sum();
+        return transport.getPrice(totalPrice);
+    }
+
+
 }
