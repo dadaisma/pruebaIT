@@ -5,7 +5,8 @@ import menu.UI;
 import people.Customer;
 import people.Rider;
 import products.*;
-import speed.Speed;
+import transport.*;
+import transport.Transport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,24 +14,28 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class OrderStructure {
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
     private static String option;
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
-    private static Customer c1 = new Customer("antonio", "avinguda1");
-    private static Customer c2 = new Customer("antonio2", "avinguda2");
-    private static Customer c3 = new Customer("antonio3", "avinguda3");
-    private static Customer c4 = new Customer("antonio4", "avinguda4");
+    private static final Customer c1 = new Customer("antonio", "avinguda1");
+    private static final Customer c2 = new Customer("antonio2", "avinguda2");
+    private static final Customer c3 = new Customer("antonio3", "avinguda3");
+    private static final Customer c4 = new Customer("antonio4", "avinguda4");
 
-    private static Rider r1 = new Rider("r1_Jordy");
-    private static Rider r2 = new Rider("r2_Jorge");
-    private static Rider r3 = new Rider("r3_Maria");
+    private static final Rider r1 = new Rider("r1_Jordy");
+    private static final Rider r2 = new Rider("r2_Jorge");
+    private static final Rider r3 = new Rider("r3_Maria");
 
     private static List<Customer> customers = List.of(c1,c2,c3,c4);
     private static List<Rider> riders = List.of(r1,r2,r3);
     private static List<Order> orders = new ArrayList<>();
     private static List<Order> deliveredOrders = new ArrayList<>();
 
+    private static void listCustomers() {
+        System.out.println("Available Customers:");
+        customers.forEach(customer -> System.out.println(customer.getName()));
+    }
 
     //order create
 
@@ -38,63 +43,54 @@ public class OrderStructure {
         Rider rider;
         Customer customer;
         List<Products> products;
-        Speed speed;
+        Transport transport;
 
         customer = pickCustomer();
         products = pickProductList();
         rider = pickRider();
-        speed = pickSpeed();
+        transport = pickTransport();
 
-        Order order = new Order(customer, rider, products,speed);
+        Order order = new Order(customer, rider, products, transport);
         orders.add(order);
         System.out.println("Order completed!");
     }
 
-        private static Customer pickCustomer()throws CustomerUndefinedException{
-        String name;
-            UI.customerMenu();
-            name=sc.nextLine();
-            for (Customer customer : customers){
-                if(customer.getName().equals(name)){
-                    return customer;
-                }
-            }
-            throw new CustomerUndefinedException();
-        }
+    private static Customer pickCustomer() throws CustomerUndefinedException {
+        listCustomers();
+        UI.customerMenu();
 
-        private static Rider pickRider()throws  NoAvailableRider{
-        if(riders.stream().allMatch(rider -> !rider.isAvailable())){
+        String name = sc.nextLine();
+
+        return customers.stream()
+                .filter(customer -> customer.getName().equals(name))
+                .findFirst()
+                .orElseThrow(CustomerUndefinedException::new);
+    }
+
+    private static Rider pickRider() throws NoAvailableRider {
+        if (riders.stream().noneMatch(Rider::isAvailable)) {
             throw new NoAvailableRider();
         }
         int randomIndex = random.nextInt(riders.size());
-        boolean free = false;
 
-        do{
-            if(riders.get(randomIndex).isAvailable()){
-                free = true;
+        do {
+            if (riders.get(randomIndex).isAvailable()) {
                 riders.get(randomIndex).setAvailable(false);
                 return riders.get(randomIndex);
             }
             randomIndex = random.nextInt(riders.size());
-        } while(!free);
-        return null;
-
-        }
-
-        //speed
-    private static Speed pickSpeed() throws  InvalidMenuOptionException{
+        } while (true);
+    }
+        //transport
+    private static Transport pickTransport() throws  InvalidMenuOptionException{
         UI.speedMenu();
         option = sc.nextLine();
-        switch (option){
-            case "2":
-                return new Speed(false,true,false);
-            case "3":
-                return new Speed(false,false,true);
-            case "1":
-                return new Speed(true,false,false);
-            default:
-                throw new InvalidMenuOptionException();
-        }
+        return switch (option) {
+            case "2" -> new ByBicycle();
+            case "3" -> new ByMoto();
+            case "1" -> new ByFeet();
+            default -> throw new InvalidMenuOptionException();
+        };
     }
 
     private static List<Products> pickProductList()throws InvalidMenuOptionException, EmptyProductListException{
@@ -109,37 +105,35 @@ public class OrderStructure {
                     option="";
                     break;
                 case "2":
+                    //complete order is not empty
+                    if(products.isEmpty()){
+                        throw new EmptyProductListException();
+                    }
                     break;
                 default:
                     throw new InvalidMenuOptionException();
             }
              } while (!option.equals("2"));
-            if(products.isEmpty()){
-                throw new EmptyProductListException();
-            }
+
             return products;
     }
 
     private static Products pickProduct() throws  InvalidMenuOptionException{
         UI.productsMenu();
         option = sc.nextLine();
-        switch (option){
-            case "1":
-                return new Burritos();
-            case "2":
-                return new Hamburger();
-            case "3":
-                return new Kebab();
-            case "4":
-                return new Pizza();
-            default:
-                throw new InvalidMenuOptionException();
-        }
+        return switch (option) {
+            case "1" -> new Burritos();
+            case "2" -> new Hamburger();
+            case "3" -> new Kebab();
+            case "4" -> new Pizza();
+            default -> throw new InvalidMenuOptionException();
+        };
     }
 
     // Delivery
 
     public static void deliveredOrder() throws  NumberFormatException, IDundefined, NullPointerException{
+        listOrders();
         int id;
         Order o;
 

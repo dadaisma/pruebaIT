@@ -2,9 +2,12 @@ package products;
 
 public abstract class Products {
     protected double price;
+    protected String gift;
 
     public Products(double price){
+
         this.price = price;
+        this.gift = null;
     }
 
     protected abstract void gift();

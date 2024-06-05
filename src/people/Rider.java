@@ -1,14 +1,16 @@
 package people;
+import transport.Transport;
 
-public class Rider extends People{
+public class Rider extends People {
     private boolean available;
+    private Transport deliveryTransport;
 
-    public Rider(String name){
+    public Rider(String name) {
         super(name);
         this.available = true;
     }
 
-    public boolean isAvailable(){
+    public boolean isAvailable() {
         return available;
     }
 
@@ -17,7 +19,7 @@ public class Rider extends People{
     }
 
     @Override
-    public String toString(){
-        return "Rider: "+name+" Available: "+ available;
+    public String toString() {
+        return "Rider: " + name + " Available: " + available + " " + (deliveryTransport != null ? deliveryTransport.toString() : "No transport assigned");
     }
 }

@@ -30,25 +30,24 @@ public class MenuStructure {
                         OrderStructure.listDeliveredOrders();
                         break;
                     case"5":
-                        exit(0);
+                        exitProgram();
                     default:
                         throw new InvalidMenuOptionException();
                 }
-            }catch(InvalidMenuOptionException e){
-                System.out.println(e.getMessage());
-            }catch(CustomerUndefinedException e){
-                System.out.println(e.getMessage());
-            }catch(NoAvailableRider e){
-                System.out.println(e.getMessage());
-            }catch(NumberFormatException e){
-                System.out.println("ERR"+e.getMessage());
-            }catch(EmptyProductListException e){
-                System.out.println(e.getMessage());
-            }catch(IDundefined e){
-                System.out.println(e.getMessage());
-            }catch(NullPointerException e){
-                System.out.println(e.getMessage());
+            } catch (InvalidMenuOptionException | CustomerUndefinedException | NoAvailableRider | EmptyProductListException | IDundefined | NullPointerException e) {
+                printError(e.getMessage());
+            } catch (NumberFormatException e) {
+                printError("ERR " + e.getMessage());
             }
-        } while(!option.equals(5));
+        } while (!option.equals("5"));
+
+    }
+    private static void printError(String message) {
+        System.out.println("Error: " + message);
+    }
+    private static void exitProgram() {
+        System.out.println("Exiting...");
+        sc.close();
+        exit(0);
     }
 }

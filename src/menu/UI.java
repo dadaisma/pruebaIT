@@ -2,14 +2,15 @@ package menu;
 
 public class UI {
     public static void mainMenu(){
-        System.out.println("*DELIVERY BRUUMM MENU*");
-        System.out.println("1- New Order");
-        System.out.println("2- Confirm Order has been DELIVERED");
-        System.out.println("3- List Pending Orders");
-        System.out.println("4- List DELIVERED Orders");
-        System.out.println("5- Exit");
-        System.out.println("Choose an Option");
-    }
+        System.out.println("""
+        *DELIVERY BRUUMM MENU*
+        1- New Order
+        2- Confirm Order has been DELIVERED
+        3- List Pending Orders
+        4- List DELIVERED Orders
+        5- Exit
+        Choose an Option
+    """);}
 
     public static void customerMenu(){
         System.out.println("*CUSTOMER'S LIST*");
@@ -17,23 +18,29 @@ public class UI {
     }
 
     public static void productsListMenu(){
-        System.out.println("*PRODUCT'S LIST*");
-        System.out.println("1- Choose a product");
-        System.out.println("2- Complete Order");
+        System.out.println("""
+        *PRODUCT'S LIST*
+        1- Choose a product
+        2- Complete Order
+        """);
     }
 
     public static void productsMenu(){
-        System.out.println("*PR E LI B A TE S S EN*");
-        System.out.println("1- BURRITOS");
-        System.out.println("2- HAMBURGER");
-        System.out.println("3- KEBAB");
-        System.out.println("4- PIZZA");
+        System.out.println("""
+        *PR E LI B A TE S S EN*
+        1- BURRITOS
+        2- HAMBURGER
+        3- KEBAB
+        4- PIZZA"""
+        );
     }
 
     public static void speedMenu(){
-        System.out.println("1- NORMAL (by feet)");
-        System.out.println("2- FAST (by bicyle)");
-        System.out.println("3- THUNDER (by moto)");
+        System.out.println("""
+        1- NORMAL (by feet)
+        2- FAST (by bicycle)
+        3- THUNDER (by moto)
+        """);
     }
 
     public static void deliveryMenu(){
