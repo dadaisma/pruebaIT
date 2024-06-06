@@ -7,7 +7,7 @@ import people.Rider;
 import products.*;
 import transport.*;
 import transport.Transport;
-
+import transport.TransportType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -40,18 +40,15 @@ public class OrderStructure {
 
     //order create
 
-    public static void newOrder()throws CustomerUndefinedException, EmptyProductListException, IDundefined, InvalidMenuOptionException, NoAvailableRider{
-        Rider rider;
-        Customer customer;
-        List<Products> products;
-        Transport transport;
+    public static void newOrder() throws CustomerUndefinedException, EmptyProductListException, IDundefined, InvalidMenuOptionException, NoAvailableRider {
+        Customer customer = pickCustomer();
+        List<Products> products = pickProductList();
+        Rider rider = pickRider();
+        TransportType transportType = pickTransport();
 
-        customer = pickCustomer();
-        products = pickProductList();
-        rider = pickRider();
-        transport = pickTransport();
+        double finalPrice = calculateFinalPrice(products, transportType);
 
-        Order order = new Order(customer, rider, products, transport);
+        Order order = new Order(customer, rider, products, transportType, finalPrice);
         orders.add(order);
         System.out.println("Order completed!");
     }
@@ -84,16 +81,22 @@ public class OrderStructure {
         return chosenRider;
     }
         //transport
-    private static Transport pickTransport() throws  InvalidMenuOptionException{
-        UI.transportTypeMenu();
-        option = sc.nextLine();
-        return switch (option) {
-            case "2" -> new ByBicycle();
-            case "3" -> new ByMoto();
-            case "1" -> new ByFeet();
-            default -> throw new InvalidMenuOptionException();
-        };
-    }
+        private static TransportType pickTransport() throws InvalidMenuOptionException {
+            UI.transportTypeMenu();
+            option = sc.nextLine();
+            switch (option) {
+                case "1" -> {
+                    return TransportType.BY_FEET;
+                }
+                case "2" -> {
+                    return TransportType.BY_BICYCLE;
+                }
+                case "3" -> {
+                    return TransportType.BY_MOTO;
+                }
+                default -> throw new InvalidMenuOptionException();
+            }
+        }
 
     private static List<Products> pickProductList()throws InvalidMenuOptionException, EmptyProductListException{
         List<Products> products = new ArrayList<Products>();
@@ -170,9 +173,9 @@ public class OrderStructure {
         deliveredOrders.forEach(order -> System.out.println(order));
     }
 
-    public static double calculateFinalPrice(List<Products> products, Transport transport) {
+    public static double calculateFinalPrice(List<Products> products, TransportType transportType) {
         double totalPrice = products.stream().mapToDouble(Products::getPrice).sum();
-        return transport.getPrice(totalPrice);
+        return transportType.getPrice(totalPrice);
     }
 
 

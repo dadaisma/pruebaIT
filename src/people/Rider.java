@@ -1,9 +1,10 @@
 package people;
-import transport.Transport;
+
+import transport.TransportType;
 
 public class Rider extends People {
     private boolean available;
-    private Transport deliveryTransport;
+    private TransportType deliveryTransport;
 
     public Rider(String name) {
         super(name);
@@ -18,8 +19,13 @@ public class Rider extends People {
         this.available = available;
     }
 
+    public void assignTransport(TransportType transportType) {
+        this.deliveryTransport = transportType;
+    }
+
     @Override
     public String toString() {
-        return "Rider: " + name + " Available: " + available + " " + (deliveryTransport != null ? deliveryTransport.toString() : "No transport assigned");
+        return "Rider: " + name + " Available: " + available +
+                (deliveryTransport != null ? " " + deliveryTransport.toString() : " No transport assigned");
     }
 }

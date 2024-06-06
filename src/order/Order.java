@@ -4,6 +4,7 @@ import people.Customer;
 import people.Rider;
 import products.Products;
 import transport.Transport;
+import transport.TransportType;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,17 +16,24 @@ public class Order {
     private final Rider rider;
     private final List<Products> products;
     private double finalPrice;
-    private final Transport transport;
+    private final TransportType transportType;
 
-    public Order(Customer customer, Rider rider, List<Products> products, Transport transport) {
+    public Order(Customer customer, Rider rider, List<Products> products, TransportType transportType, double finalPrice) {
         this.id = ++counter;
         this.customer = customer;
         this.rider = rider;
         this.products = products;
-        this.transport = transport;
-        this.finalPrice = OrderStructure.calculateFinalPrice(products, transport);
+        this.transportType = transportType;
+        this.finalPrice = OrderStructure.calculateFinalPrice(products, transportType);
     }
 
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        Order.counter = counter;
+    }
 
     public int getID() {
         return id;
@@ -47,8 +55,12 @@ public class Order {
         return finalPrice;
     }
 
-    public Transport getTransport() {
-        return transport;
+    public void setFinalPrice(double finalPrice) {
+        this.finalPrice = finalPrice;
+    }
+
+    public TransportType getTransportType() {
+        return transportType;
     }
 
     @Override
@@ -58,7 +70,7 @@ public class Order {
                 .collect(Collectors.joining("\n"));
 
         double totalPrice = products.stream().mapToDouble(Products::getPrice).sum();
-        double transportPrice = transport.getPrice(products.stream().mapToDouble(Products::getPrice).sum());
+        double transportPrice = transportType.getPrice(products.stream().mapToDouble(Products::getPrice).sum());
         double extraChargePercentage = (transportPrice - totalPrice);
 
         String extraChargeString = String.format("Extra Charge for Transport: %.2f€", extraChargePercentage);
@@ -66,7 +78,7 @@ public class Order {
         return "Order ID: " + id + "\n" +
                 "Customer: " + customer.getName() + "\n" +
                 "Rider: " + rider.getName() + "\n" +
-                transport + "\n" +
+                transportType + "\n" +
                 extraChargeString + "\n" +
                 "Products:\n" + productsString + "\n" +
                 "Final Price: " + finalPrice + "€";
