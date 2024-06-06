@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ec21a87-152d-4316-a071-4dd55cdf54c6" name="Changes" comment="review1b">
-      <change afterPath="$PROJECT_DIR$/src/transport/TransportType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/menu/option/MainMenuOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/menu/option/ProductListMenuOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/menu/option/ProductsMenuOption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/MenuStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/MenuStructure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/order/OrderStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/OrderStructure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/people/Rider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/people/Rider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/transport/ByBicycle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/transport/ByFeet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/transport/ByMoto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/transport/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transport/Transport.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,17 +54,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;review&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/formacio/IdeaProjects/Davide/sprint2temp/pruebaIT/src/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "review",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "C:/Users/formacio/IdeaProjects/Davide/sprint2temp/pruebaIT/src/Main.java"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

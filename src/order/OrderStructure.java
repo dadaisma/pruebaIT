@@ -5,14 +5,17 @@ import menu.UI;
 import people.Customer;
 import people.Rider;
 import products.*;
-import transport.*;
-import transport.Transport;
 import transport.TransportType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+
+import static menu.option.ProductListMenuOption.CHOOSEAPRODUCT;
+import static menu.option.ProductListMenuOption.COMPLETEORDER;
+import static menu.option.ProductsMenuOption.*;
+import static menu.option.TransportTypeMenuOption.*;
 
 public class OrderStructure {
     private static final Scanner sc = new Scanner(System.in);
@@ -84,53 +87,51 @@ public class OrderStructure {
         private static TransportType pickTransport() throws InvalidMenuOptionException {
             UI.transportTypeMenu();
             option = sc.nextLine();
-            switch (option) {
-                case "1" -> {
+            switch (Integer.parseInt(option)) {
+                case NORMALBYFEET -> {
                     return TransportType.BY_FEET;
                 }
-                case "2" -> {
+                case FASTBYBICYCLE -> {
                     return TransportType.BY_BICYCLE;
                 }
-                case "3" -> {
+                case THUNDERBYMOTO -> {
                     return TransportType.BY_MOTO;
                 }
                 default -> throw new InvalidMenuOptionException();
             }
         }
 
-    private static List<Products> pickProductList()throws InvalidMenuOptionException, EmptyProductListException{
+    private static List<Products> pickProductList() throws InvalidMenuOptionException, EmptyProductListException {
         List<Products> products = new ArrayList<Products>();
 
-        do{
+        do {
             UI.productsListMenu();
             option = sc.nextLine();
-            switch (option){
-                case "1":
+            switch (Integer.parseInt(option)) {
+                case CHOOSEAPRODUCT:
                     products.add(pickProduct());
-                    option="";
+                    option = "";
                     break;
-                case "2":
-                    //complete order is not empty
-                    if(products.isEmpty()){
+                case COMPLETEORDER:
+
+                    if (products.isEmpty()) {
                         throw new EmptyProductListException();
                     }
-                    break;
+                    return products;
                 default:
                     throw new InvalidMenuOptionException();
             }
-             } while (!option.equals("2"));
-
-            return products;
+        } while (true);
     }
 
     private static Products pickProduct() throws  InvalidMenuOptionException{
         UI.productsMenu();
         option = sc.nextLine();
-        return switch (option) {
-            case "1" -> new Burritos();
-            case "2" -> new Hamburger();
-            case "3" -> new Kebab();
-            case "4" -> new Pizza();
+        return switch (Integer.parseInt(option)) {
+            case BURRITOS -> new Burritos();
+            case HAMBURGER -> new Hamburger();
+            case KEBAB -> new Kebab();
+            case PIZZA -> new Pizza();
             default -> throw new InvalidMenuOptionException();
         };
     }

@@ -6,6 +6,7 @@ import order.OrderStructure;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
+import static menu.option.MainMenuOption.*;
 
 public class MenuStructure {
     private static Scanner sc = new Scanner(System.in);
@@ -16,30 +17,24 @@ public class MenuStructure {
                 UI.mainMenu();
                 option = sc.nextLine();
 
-                switch (option){
-                    case "1":
-                        OrderStructure.newOrder();
-                        break;
-                    case "2":
-                        OrderStructure.deliveredOrder();
-                        break;
-                    case"3":
-                        OrderStructure.listOrders();
-                        break;
-                    case"4":
-                        OrderStructure.listDeliveredOrders();
-                        break;
-                    case"5":
-                        exitProgram();
-                    default:
-                        throw new InvalidMenuOptionException();
+                switch (Integer.parseInt(option)){
+                    case NEWORDER -> OrderStructure.newOrder();
+
+                    case CONFIRMORDERHASBENNDELIVERED -> OrderStructure.deliveredOrder();
+
+                    case LISTPENDINGORDERS -> OrderStructure.listOrders();
+
+                    case LISTDELIVEREDORDERS -> OrderStructure.listDeliveredOrders();
+
+                    case EXIT -> exitProgram();
+                    default -> throw new InvalidMenuOptionException();
                 }
             } catch (InvalidMenuOptionException | CustomerUndefinedException | NoAvailableRider | EmptyProductListException | IDundefined | NullPointerException e) {
                 printError(e.getMessage());
             } catch (NumberFormatException e) {
                 printError("ERR " + e.getMessage());
             }
-        } while (!option.equals("5"));
+        } while (true);
 
     }
     private static void printError(String message) {
